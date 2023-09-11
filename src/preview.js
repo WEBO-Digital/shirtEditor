@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Navbar, Button } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
-import DownloadToImage from "./downloadbtn";
+import DownloadToImage from "./downloadtoimage";
 
 export const Preview = observer(({ store }) => {
   const [previewVisible, setPreviewVisible] = React.useState(true);
@@ -63,9 +63,12 @@ export const Preview = observer(({ store }) => {
       <div
         ref={nodeRef}
         className="preview-container"
-        style={{ display: previewVisible ? "" : "none", position: "relative" }}
+        style={{
+          display: previewVisible ? "" : "none",
+          position: "relative",
+        }}
       >
-        <img src="./tshirt.png" style={{ width: "300px" }} />
+        <img src="./tshirt.png" style={{ maxWidth: "300px" }} />
         <img
           src={content}
           style={{
@@ -73,7 +76,6 @@ export const Preview = observer(({ store }) => {
             top: "80px",
             left: "100px",
             width: "100px",
-            border: "1px solid lightgrey",
           }}
         />
       </div>
